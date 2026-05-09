@@ -55,7 +55,6 @@ jobs:
       - name: Validate Commit Message Contains Jira ID
         run: |
           echo "Checking commit messages for Jira ticket IDs..."
-          # Get the commit messages from this push/PR
           COMMITS=$(git log origin/main..HEAD --pretty=format:"%s" 2>/dev/null || git log -1 --pretty=format:"%s")
           echo "Commits to check:"
           echo "$COMMITS"
@@ -63,10 +62,14 @@ jobs:
           FAILED=false
           while IFS= read -r msg; do
             if [[ -n "$msg" ]]; then
+              # Skip auto-generated merge commits
+              if echo "$msg" | grep -qE "^Merge .* into "; then
+                echo "SKIP (merge commit): '$msg'"
+                continue
+              fi
               if ! echo "$msg" | grep -qE "$PATTERN"; then
                 echo "ERROR: Commit message does not start with [POS-XXX]:"
                 echo "  '$msg'"
-                echo "  Valid format: [POS-101] Add header section"
                 FAILED=true
               else
                 echo "OK: '$msg'"
