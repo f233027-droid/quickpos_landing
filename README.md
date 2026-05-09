@@ -1,6 +1,6 @@
 # QuickPOS Landing Page
 
-![CI/CD Pipeline](https://github.com/YOUR_USERNAME/quickpos_landing/actions/workflows/ci.yml/badge.svg)
+![CI/CD Pipeline](https://github.com/f233027-droid/quickpos_landing/actions/workflows/ci.yml/badge.svg)
 
 ## Project Overview
 A professional landing page for the QuickPOS Point-of-Sale system.
@@ -48,4 +48,4 @@ All tasks tracked in Jira under the QuickPOS project.
 - `thank-you.php` - Success redirect page
 - `style.css` - All styling
 
-■ NOTE: Replace YOUR_USERNAME in the badge URL with your actual GitHub username!
+
