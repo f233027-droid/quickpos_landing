@@ -29,6 +29,11 @@
             <h1>Sell Smarter with <span class="highlight">QuickPOS™</span></h1>
             <p>The fastest, easiest point-of-sale system for modern businesses. Manage sales, inventory, and staff from one dashboard.</p>
             <a href="#contact" class="btn btn-hero">Get Started Free &rarr;</a>
+            <div class="hero-stats">
+                <div class="stat"><strong>10,000+</strong><span>Businesses</span></div>
+                <div class="stat"><strong>99.9%</strong><span>Uptime</span></div>
+                <div class="stat"><strong>24/7</strong><span>Support</span></div>
+            </div>
         </div>
     </section>
 

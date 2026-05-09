@@ -380,3 +380,32 @@ body {
         transform: scale(1);
     }
 }
+
+/* Hero Stats Bar */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-stats .stat {
+    text-align: center;
+    color: #fff;
+}
+
+.hero-stats .stat strong {
+    display: block;
+    font-size: 1.8rem;
+    color: #4fc3f7;
+    font-weight: bold;
+}
+
+.hero-stats .stat span {
+    font-size: 0.85rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
