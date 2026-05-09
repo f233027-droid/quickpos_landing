@@ -82,38 +82,48 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle">No hidden fees. Cancel anytime. 14-day free trial on all plans.</p>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>Basic</h3>
                     <div class="price">$9<span>/mo</span></div>
+                    <p class="plan-desc">Perfect for small shops</p>
                     <ul>
-                        <li>1 Terminal</li>
-                        <li>Basic Reports</li>
-                        <li>Email Support</li>
-                        <li>Up to 500 products</li>
+                        <li>✅ 1 Terminal</li>
+                        <li>✅ Basic Sales Reports</li>
+                        <li>✅ Email Support</li>
+                        <li>✅ Up to 500 products</li>
+                        <li>✅ Daily backups</li>
+                        <li>❌ Multi-location</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                    <a href="#contact" class="btn btn-outline">Start Free Trial</a>
                 </div>
                 <div class="pricing-card featured">
                     <span class="badge">Most Popular</span>
                     <h3>Pro</h3>
                     <div class="price">$29<span>/mo</span></div>
+                    <p class="plan-desc">For growing businesses</p>
                     <ul>
-                        <li>5 Terminals</li>
-                        <li>Advanced Analytics</li>
-                        <li>Priority Support</li>
-                        <li>Unlimited products</li>
+                        <li>✅ 5 Terminals</li>
+                        <li>✅ Advanced Analytics</li>
+                        <li>✅ Priority Support</li>
+                        <li>✅ Unlimited products</li>
+                        <li>✅ Real-time sync</li>
+                        <li>✅ Multi-location</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#contact" class="btn btn-primary">Start Free Trial</a>
                 </div>
                 <div class="pricing-card">
                     <h3>Enterprise</h3>
                     <div class="price">$99<span>/mo</span></div>
+                    <p class="plan-desc">For large operations</p>
                     <ul>
-                        <li>Unlimited Terminals</li>
-                        <li>Custom Reports</li>
-                        <li>24/7 Support</li>
-                        <li>API Access</li>
+                        <li>✅ Unlimited Terminals</li>
+                        <li>✅ Custom Reports</li>
+                        <li>✅ 24/7 Dedicated Support</li>
+                        <li>✅ API Access</li>
+                        <li>✅ White labeling</li>
+                        <li>✅ SLA guarantee</li>
                     </ul>
                     <a href="#contact" class="btn btn-outline">Contact Sales</a>
                 </div>

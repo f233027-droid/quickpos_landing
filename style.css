@@ -418,3 +418,16 @@ body {
   margin-bottom: 45px;
   font-size: 1rem;
 }
+
+/* ── POS-11 Pricing Section ── */
+.plan-desc {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  margin-top: -10px;
+}
+.pricing-card ul li {
+  text-align: left;
+  font-size: 0.9rem;
+  padding: 6px 0;
+}
