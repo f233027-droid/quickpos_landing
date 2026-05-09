@@ -4,6 +4,7 @@
 function validateContactForm(array $data): array {
     $errors = [];
 
+    // Bug fix: trim() prevents whitespace-only submissions
     if (empty(trim($data['name'] ?? ''))) {
         $errors[] = 'Name is required.';
     } elseif (strlen(trim($data['name'])) < 2) {
