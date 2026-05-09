@@ -136,7 +136,8 @@
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="form-wrapper">
-                <?php 
+                <?php
+                if (session_status() === PHP_SESSION_NONE) { session_start(); }
                 $errors = []; 
                 if (isset($_SESSION['errors'])) {
                     $errors = $_SESSION['errors']; 
