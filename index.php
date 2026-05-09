@@ -12,7 +12,7 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <i class="fas fa-cash-register"></i> QuickPOS
+                <i class="fas fa-cash-register"></i> QuickPOS™
             </div>
             <nav class="nav">
                 <a href="#features">Features</a>
@@ -26,7 +26,7 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Sell Smarter with <span class="highlight">QuickPOS</span></h1>
+            <h1>Sell Smarter with <span class="highlight">QuickPOS™</span></h1>
             <p>The fastest, easiest point-of-sale system for modern businesses. Manage sales, inventory, and staff from one dashboard.</p>
             <a href="#contact" class="btn btn-hero">Get Started Free &rarr;</a>
         </div>
@@ -35,7 +35,7 @@
     <!-- FEATURES -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Why Choose QuickPOS?</h2>
+            <h2 class="section-title">Why Choose QuickPOS™?</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <i class="fas fa-bolt"></i>
@@ -150,7 +150,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <i class="fas fa-cash-register"></i> QuickPOS
+                    <i class="fas fa-cash-register"></i> QuickPOS™
                     <p>Smart selling for modern businesses.</p>
                 </div>
                 <div class="footer-social">
