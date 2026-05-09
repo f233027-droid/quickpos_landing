@@ -409,3 +409,12 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+/* ── POS-10 Features Section ── */
+.section-subtitle {
+  text-align: center;
+  color: #888;
+  margin-top: -35px;
+  margin-bottom: 45px;
+  font-size: 1rem;
+}
