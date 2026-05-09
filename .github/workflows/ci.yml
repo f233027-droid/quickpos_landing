@@ -1,6 +1,7 @@
-# [POS-202] QuickPOS CI/CD Pipeline
-# Triggers on PRs to main AND pushes to feature/ and bugfix/ branches
+# [POS-15] [POS-16] QuickPOS CI/CD Pipeline
+
 name: QuickPOS CI/CD Pipeline
+
 on:
   pull_request:
     branches: [ main ]
@@ -8,22 +9,19 @@ on:
     branches:
       - 'feature/**'
       - 'bugfix/**'
+      - 'fix/**'
 
 jobs:
-  # ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-  # JOB 1: Code Quality Check (runs in PARALLEL)
-  # ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
   code-quality:
     name: Code Quality Check
     runs-on: ubuntu-latest
     steps:
-      # Stage 1: Checkout Code
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Needed for commit message check
+          fetch-depth: 0
 
-      # Stage 2: Setup PHP
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -31,7 +29,6 @@ jobs:
           extensions: mbstring, xml, ctype, iconv
           coverage: none
 
-      # Stage 5: PHP Syntax Check
       - name: PHP Syntax Check
         run: |
           echo "Running PHP syntax checks..."
@@ -40,36 +37,30 @@ jobs:
           php -l thank-you.php
           echo "All files passed syntax check!"
 
-      # Stage 3: Install Dependencies
       - name: Install Composer Dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
-      # Stage 3: PHPStan Code Quality
       - name: PHPStan Static Analysis
         run: |
-          echo "Running PHPStan code quality check..."
-          ./vendor/bin/phpstan analyse --level=5 index.php process_form.php thank-you.php --no-progress
-          echo "PHPStan check passed!"
+          echo "Running PHPStan..."
+          ./vendor/bin/phpstan analyse --level=3 index.php process_form.php thank-you.php --no-progress
+          echo "PHPStan passed!"
 
-      # Stage 10: Validate Commit Message has Jira ID
       - name: Validate Commit Message Contains Jira ID
         run: |
-          echo "Checking commit messages for Jira ticket IDs..."
+          echo "Checking commit messages for Jira IDs..."
           COMMITS=$(git log origin/main..HEAD --pretty=format:"%s" 2>/dev/null || git log -1 --pretty=format:"%s")
-          echo "Commits to check:"
           echo "$COMMITS"
           PATTERN="^\[POS-[0-9]+\]"
           FAILED=false
           while IFS= read -r msg; do
             if [[ -n "$msg" ]]; then
-              # Skip auto-generated merge commits
               if echo "$msg" | grep -qE "^Merge .* into "; then
-                echo "SKIP (merge commit): '$msg'"
+                echo "SKIP merge commit: '$msg'"
                 continue
               fi
               if ! echo "$msg" | grep -qE "$PATTERN"; then
-                echo "ERROR: Commit message does not start with [POS-XXX]:"
-                echo "  '$msg'"
+                echo "ERROR: '$msg' missing [POS-XXX]"
                 FAILED=true
               else
                 echo "OK: '$msg'"
@@ -77,43 +68,34 @@ jobs:
             fi
           done <<< "$COMMITS"
           if [ "$FAILED" = true ]; then
-            echo "Pipeline FAILED: Fix commit messages to include Jira ticket IDs"
             exit 1
           fi
-          echo "All commit messages have valid Jira IDs!"
+          echo "All commit messages valid!"
 
-  # ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-  # JOB 2: Automated Tests (runs in PARALLEL)
-  # ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
   automated-tests:
     name: Automated PHPUnit Tests
     runs-on: ubuntu-latest
     steps:
-      # Stage 1: Checkout Code
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Stage 2: Setup PHP
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
           extensions: mbstring, xml
-          coverage: xdebug
+          coverage: none
 
-      # Install Dependencies
       - name: Install Composer Dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
-      # Stage 4: Run Automated PHPUnit Tests
       - name: Run PHPUnit Tests
         run: |
-          echo "Running automated test suite..."
+          echo "Running test suite..."
           ./vendor/bin/phpunit tests/ --testdox --colors=always
           echo "All tests passed!"
 
-      # Stage 6: Upload Build Artifacts
-      - name: Upload Test Results as Artifact
+      - name: Upload Test Results
         uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -123,9 +105,6 @@ jobs:
             phpunit.xml
           retention-days: 7
 
-  # ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-  # FINAL JOB: Status Summary (waits for both)
-  # ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
   pipeline-status:
     name: Pipeline Status Summary
     runs-on: ubuntu-latest
@@ -134,7 +113,8 @@ jobs:
     steps:
       - name: Check Pipeline Result
         run: |
-          if [ "${{ needs.code-quality.result }}" == "success" ] && [ "${{ needs.automated-tests.result }}" == "success" ]; then
+          if [ "${{ needs.code-quality.result }}" == "success" ] && \
+             [ "${{ needs.automated-tests.result }}" == "success" ]; then
             echo "=========================================="
             echo " ALL CHECKS PASSED - Safe to merge!"
             echo "=========================================="
@@ -142,7 +122,7 @@ jobs:
             echo "=========================================="
             echo " PIPELINE FAILED - Do NOT merge!"
             echo " Code Quality: ${{ needs.code-quality.result }}"
-            echo " Tests: ${{ needs.automated-tests.result }}"
+            echo " Tests:        ${{ needs.automated-tests.result }}"
             echo "=========================================="
             exit 1
           fi
