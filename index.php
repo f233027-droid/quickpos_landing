@@ -1,3 +1,4 @@
+<?php session_start(); // QuickPOS - POS-8 POS-9 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,26 +42,37 @@
     <section id="features" class="features">
         <div class="container">
             <h2 class="section-title">Why Choose QuickPOS™?</h2>
+            <p class="section-subtitle">Everything you need to run your business smoothly</p>
             <div class="features-grid">
                 <div class="feature-card">
                     <i class="fas fa-bolt"></i>
                     <h3>Lightning Fast</h3>
-                    <p>Process sales in under 2 seconds. No lag, no waiting.</p>
+                    <p>Process sales in under 2 seconds. No lag, no waiting, no lost customers.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-chart-line"></i>
                     <h3>Real-Time Reports</h3>
-                    <p>Live dashboards showing your daily sales and top products.</p>
+                    <p>Live dashboards showing your daily sales, top products, and revenue trends.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-mobile-alt"></i>
                     <h3>Works on Any Device</h3>
-                    <p>Desktop, tablet, or phone - QuickPOS adapts to your setup.</p>
+                    <p>Desktop, tablet, or phone — QuickPOS adapts perfectly to your setup.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-shield-alt"></i>
-                    <h3>Secure & Reliable</h3>
-                    <p>Bank-grade encryption with 99.9% uptime guarantee.</p>
+                    <h3>Secure &amp; Reliable</h3>
+                    <p>Bank-grade encryption with 99.9% uptime guarantee. Your data is always safe.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Auto Sync</h3>
+                    <p>All your data syncs instantly across every device and location in real time.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Our expert team is available around the clock to help you solve any issue.</p>
                 </div>
             </div>
         </div>
