@@ -431,3 +431,15 @@ body {
   font-size: 0.9rem;
   padding: 6px 0;
 }
+
+/* ── POS-13 Footer Section ── */
+.footer-logo { font-size: 1.4rem; font-weight: bold; color: #fff; margin-bottom: 10px; }
+.footer-logo i { color: #4fc3f7; }
+.footer-links h4 { color: #fff; margin-bottom: 12px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
+.footer-links ul { list-style: none; }
+.footer-links ul li { margin-bottom: 8px; }
+.footer-links ul li a { color: #aaa; text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+.footer-links ul li a:hover { color: #4fc3f7; }
+.footer-social { display: flex; gap: 12px; margin-top: 15px; }
+.footer-social a { color: #aaa; font-size: 1.3rem; transition: color 0.3s; }
+.footer-social a:hover { color: #4fc3f7; }
