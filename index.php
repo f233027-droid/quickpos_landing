@@ -1,4 +1,4 @@
-<?php session_start(); // QuickPOS - POS-8 POS-9 ?>
+<?php session_start(); // QuickPOS - POS-8 POS-9 - fixed ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,7 @@
     <title>QuickPOS - Smart Point of Sale System</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
+</head> 
 
 <body>
     <!-- HEADER -->
