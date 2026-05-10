@@ -3,7 +3,7 @@
 ![CI/CD Pipeline](https://github.com/f233027-droid/quickpos_landing/actions/workflows/ci.yml/badge.svg)
 
 ## Project Overview
-A professional landing page for the QuickPOS Point-of-Sale system.
+A professional landing page for the QuickPOS Point-of-Sale system
 Built with PHP as part of the Software Project Management course.
 
 ## Team
@@ -48,4 +48,4 @@ All tasks tracked in Jira under the QuickPOS project.
 - `thank-you.php` - Success redirect page
 - `style.css` - All styling
 
-
+> 🚀 Built with PHP | Tested with PHPUnit | CI/CD via GitHub Actions
