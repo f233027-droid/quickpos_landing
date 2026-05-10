@@ -48,4 +48,4 @@ All tasks tracked in Jira under the QuickPOS project.
 - `thank-you.php` - Success redirect page
 - `style.css` - All styling
 
-> 🚀 Built with PHP | Tested with PHPUnit | CI/CD via GitHub Actions
+> 🚀 Built with PHP | Tested with PHPUnit | CI/CD through GitHub Actions
