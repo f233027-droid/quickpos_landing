@@ -214,7 +214,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <?= date('Y') ?> QuickPOS Inc. All rights reserved. | Built with ❤️ for modern businesses</p>
+               <p>&copy; <?= date('Y') ?> QuickPOS Inc. All rights reserved. | Pakistan</p>
             </div>
         </div>
     </footer>
